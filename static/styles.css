@@ -77,7 +77,7 @@ margin-bottom: 20px;
 
 /*input section*/
 .input-section{
-    width: 50%;
+    width: 48%;
 }
 form{
     display: flex;
@@ -141,10 +141,11 @@ footer{
     font-family: monospace;
     white-space: pre;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1;
     color: #34d399;
-    overflow: hidden;
+    overflow: auto;
+    overflow-y: hidden;
 }
 
 #download-btn{
@@ -155,7 +156,7 @@ footer{
     width: 100%;
     max-width: 1000px;
     background-color: rgba(31,41,55, 0.9);
-     padding: 40px;
+    padding: 40px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,0,0, 0.5);
 
@@ -183,10 +184,11 @@ footer{
 }
 
 /*Media queries*/
-@media (max-width:820px) {
+@media (max-width:1000px) {
     .logo{
         font-size: 18px;
         margin: 10px;
+        margin-left: 40%;
     }
     .navbar {
         flex-direction: column;
@@ -196,6 +198,13 @@ footer{
         flex-direction: column;
         width: 100%;
         gap: 10px;
+    }
+    textarea, input, select, button {
+        font-size: 14px;
+        padding: 10px;
+        overflow: auto;
+        width: 96%;
+
     }
     .option-row {
         flex-direction: column;
@@ -216,7 +225,9 @@ footer{
 @media (max-width: 600px) {
     .logo{
         font-size: 18px;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 50%;
     }
     .input-section, .ascii-art{
         width: 100%;

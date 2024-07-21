@@ -26,7 +26,7 @@ func art(w http.ResponseWriter, r *http.Request) {
 
 	r.ParseForm()
 	text := r.FormValue("input")
-	banner := r.FormValue("banner")
+	banner := r.FormValue("bannerfile")
 	fmt.Println((text))
 	ascii_Art, err := functions.Input(text, banner)
 	if err != nil {

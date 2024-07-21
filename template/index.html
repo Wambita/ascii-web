@@ -27,10 +27,10 @@
 <div class="container">
     <div class="form-container">
         <div class="input-section">
-            <form>
-                <textarea type="text" id="input-text" placeholder="Enter your text here"></textarea>
+            <form method="POST" action="/ascii-art">
+                <textarea type="text" name= "input" id="input-text" placeholder="Enter your text here"></textarea>
                 <div class="option-row">
-                    <select name="bannerfile" id="text-option" required>
+                    <select name="bannerfile" id="banner" required>
                         <option value="standard">standard</option>
                         <option value="shadow">shadow</option>
                         <option value="thinkertoy">thinkertoy</option>
@@ -71,9 +71,13 @@
         </div>
     </div>
     <div class="output-section">
-        <textarea id="output-text" rows="8" placeholder="Output will appear here" readonly></textarea>
+       <!-- <textarea id="output-text" rows="8" placeholder="output will appear here" readonly>{{.AsciiArt}}</textarea> -->
         <button id="download-btn">Download Output</button>
     </div>
+    
+</div>
+<div>
+    <pre> {{.AsciiArt}}</pre>
 </div>
 <footer>
     <div>&copy; 2024 ASCII ART WEB. All rights reserved</div>

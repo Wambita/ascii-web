@@ -21,7 +21,7 @@ func Input(text string, banner string) (string, error) {
 	// thinkertoyCheckSum := "092d0cde973bfbb02522f18e00e8612e269f53bac358bb06f060a44abd0dbc52"
 	// acCheckSum := "cb217d33c89b7320ebd39f18573ab7ab90c3cb9042a7702f5dd21833524e73b2"
 
-	banner = strings.ToLower(banner)
+	// banner = strings.ToLower(bannerfiles)
 
 	// banners := []string{"standard", "thinkertoy", "shadow", "ac"}
 	// for i := range banners {

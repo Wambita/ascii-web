@@ -14,7 +14,7 @@ func Art(text string, m map[rune][]string) string {
 		for _, char := range text {
 			asciiArt, ok := m[char]
 			if !ok {
-				fmt.Println("Not an ascii character")
+				fmt.Println("Error 500: Bad Request.")
 				os.Exit(0)
 			}
 			str += asciiArt[i]

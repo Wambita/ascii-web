@@ -33,14 +33,10 @@ func art(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error generating ASCII art", http.StatusInternalServerError)
 		return
 	}
-	// ascii_Art= strings.ReplaceAll(ascii_Art, "\n", "<br>")
+	
 	fmt.Println(ascii_Art)
 	data := ascii{AsciiArt: ascii_Art}
-	// data := struct {
-	// 	AsciiArt string
-	// } {
-	// 	AsciiArt: ascii_Art,
-	// }
+	
 
 	home := template.Must(template.ParseFiles("template/index.html"))
 	err2 := home.Execute(w, data)

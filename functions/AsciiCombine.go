@@ -9,8 +9,9 @@ func AsciiCombine(input string, asciiMap map[rune][]string) []string {
 	if input == "" {
 		return []string{}
 	}
+	input = strings.Replace(input, "\r", "\\n", -1)
 	input = strings.Replace(input, "\n", "\\n", -1)
-	input = strings.Replace(input, "\r", "\\r", -1)
+	
 	var result []string
 
 	words := strings.Split(input, "\\n")

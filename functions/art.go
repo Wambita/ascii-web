@@ -1,12 +1,11 @@
 package ascii
 
 import (
-	"fmt"
-	"os"
+	"errors"
 )
 
 // combiness the line of Ascii art per slices of the input string and predefined mapping
-func Art(text string, m map[rune][]string) string {
+func Art(text string, m map[rune][]string) (string, error) {
 	str := ""
 	// ranges through the 8 lines of the ascii art
 	for i := 0; i < 8; i++ {
@@ -14,13 +13,12 @@ func Art(text string, m map[rune][]string) string {
 		for _, char := range text {
 			asciiArt, ok := m[char]
 			if !ok {
-				fmt.Println("Error 500: Bad Request.")
-				os.Exit(0)
+				return "", errors.New("Non ascii Character")
 			}
 			str += asciiArt[i]
 		}
 		str += "\n"
 
 	}
-	return str
+	return str, nil
 }

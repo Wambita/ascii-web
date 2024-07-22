@@ -18,9 +18,16 @@ func home(w http.ResponseWriter, r *http.Request) {
 	home.Execute(w, nil)
 }
 
+func ErrorPage(w http.ResponseWriter, statusCode int, message string) {
+	tmpl := template.Must(template.ParseFiles("template/error.html"))
+	w.WriteHeader(statusCode)
+	data := ascii{Error: message}
+	tmpl.Execute(w, data)
+}
+
 func art(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Invalid request method", http.StatusBadRequest)
+		ErrorPage(w, http.StatusBadRequest, "400 Bad Request")
 		return
 	}
 
@@ -30,7 +37,7 @@ func art(w http.ResponseWriter, r *http.Request) {
 	fmt.Println((text))
 	ascii_Art, err := functions.Input(text, banner)
 	if err != nil {
-		http.Error(w, "Error generating ASCII art", http.StatusInternalServerError)
+		ErrorPage(w, http.StatusInternalServerError, "500 Internal Server Error")
 		return
 	}
 

@@ -1,7 +1,7 @@
 package ascii
 
 import (
-	"errors"
+	"fmt"
 )
 
 // combiness the line of Ascii art per slices of the input string and predefined mapping
@@ -13,7 +13,7 @@ func Art(text string, m map[rune][]string) (string, error) {
 		for _, char := range text {
 			asciiArt, ok := m[char]
 			if !ok {
-				return "", errors.New("Non ascii Character")
+				return "", fmt.Errorf("non ascii Character")
 			}
 			str += asciiArt[i]
 		}

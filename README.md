@@ -1,44 +1,48 @@
 # ASCII-ART WEB
 
-Ascii-art-web consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of the last project ascii-art.
+ASCII Art WEb is a dynamic web application that allows users to create ASCII ART.It consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of the last project ascii-art.
 
 
 ## Description
-Ascii-art Web is a program that creates a webpage for clients to generate Ascii-Art of the message you enter. There are various aspects that can be implemented where the user/client is presented an area for them to type their desire message. If the character is among the English Dictionary it is represented within the art as well as numerics and symbols.
+Ascii-art Web is a program that creates a webpage for clients to generate Ascii-Art of the message you enter. There are various aspects that can be implemented where the user/client is presented an area for them to type their desire message. If the character is among the printable ASCII range  it is represented within the art as well as numerics and symbols.
+
+## Features 
++ Convert text to ASCII art using varoius banner files
++ Interactive web interface for  creating ASCII art.
++ Responsive design for desktop and mobile devices.
 
 
+## Installation 
 
+To set up ASCII Art Web locally, follow these steps:
+```bash
+# Clone the repository
+git clone https://learn.zone01kisumu.ke/git/shfana/ascii-art-web.git
 
+# Navigate to the project directory
+cd ascii-art-web
 
-
-## Usage
-* You have to install go dependancies for you to run the program. If you don't have the go dependancies run the following command to download ;
+# Install dependencies
 
 `sudo apt install go -all`
 
-* If you have go dependancies skip the first step. To clone the project on your local machine, run
-
-`git clone https://learn.zone01kisumu.ke/git/shfana/ascii-art-web.git`
-
-* Navigate to the directory where the project is and run the program
-
-```bash
-cd ascii-art-web
+# Start the development server
 go run .
 ```
+
+## Usage
+After installation, you can access the web application by navgating to [http://localhost:8080](http://localhost:8080)
+
+
 output
 
 You will receive the following message on your terminal
 ```bash
 Server is starting at http://localhost:8080
 ```
-To view the project on your browser, you can click the link on the terminal or copy it in your browser, or open localhost at port **8080**
-
-This will be the home page of our application when opened on the browser(Mozilla Firefox)
-
 ![home](/assets/images/home.png)
 
-- This is the page that is displayed when the user opens [http://localhost:8080](http://localhost:8080)
+- This is the page that is displayed when the user opens 
 
 - These are the various parts of the home page 
 
@@ -71,6 +75,13 @@ This project comes with three predefined ASCII fonts, located in banner files:
 **- Each character is represented over 8 lines, providing a clear and sizable output.**
 
 **- Characters are separated by a new line `\n`.**
+
+### Creating ASCII Art
+
+   1. Enter your desired text in the input field
+   2. Select a banner style from the dropdown menu
+   3. Click "Generate" to create your ASCII art
+
 
 - From the example where the user has typed "hello" in the input field and selected  the `standard` banner. 
 - The output should be shown as seen in the image below
@@ -135,6 +146,15 @@ This project can only print characters in the printable ASCII range from space t
 
 Contributions are welcome. Please adhere to the existing coding standards and include unit tests for any new features or changes. Ensure to thoroughly test the code before pushing any updates.
 If you encounter any issues or have suggestions for improvement, feel free to submit an issue, pull request or propose a change!
+
+
+Please follow these steps to contribute:
+
+   1. Fork the repository
+   2. Create a new branch (git checkout -b feature/AmazingFeature)
+   3. Commit your changes (git commit -m 'Add some AmazingFeature')
+   4. Push to the branch (git push origin feature/AmazingFeature)
+   5. Open a Pull Request
 
 
 ## License

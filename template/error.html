@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"
-    </head>
-    <body>
-        <h1>Error</h1>
-        <p>{{.Error}}</p>
-        <a href="/">Back</a>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/static/err.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{.Error}}</h1>
+        <p>Oops! An error occured</p>
+        
+        <div id="ascii-art">
+ ______   _____    _____     ____    _____   
+|  ____| |  __ \  |  __ \   / __ \  |  __ \  
+| |__    | |__) | | |__) | | |  | | | |__) | 
+|  __|   |  _  /  |  _  /  | |  | | |  _  /  
+| |____  | | \ \  | | \ \  | |__| | | | \ \  
+|______| |_|  \_\ |_|  \_\  \____/  |_|  \_\ 
+                                             
+            
+        </div>
+        
+        <a href="/" id="back-button">Go Back</a>
+      </div>
+</body>
 </html>

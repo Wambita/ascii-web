@@ -8,9 +8,10 @@ import (
 // Handles newlines aspect in input string,combines all input slices' asciiArt
 func AsciiCombine(input string, asciiMap map[rune][]string) ([]string, error) {
 	if input == "" {
-		return []string{},nil
+		return []string{}, nil
 	}
 	input = strings.Replace(input, "\r", "\\r", -1)
+	input = strings.Replace(input, "\\r", "\n", -1)
 	input = strings.Replace(input, "\n", "\\n", -1)
 
 	var result []string

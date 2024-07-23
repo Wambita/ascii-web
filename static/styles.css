@@ -176,6 +176,41 @@ footer{
 .tiny-text .line-2 {
     color: #34d399;
 }
+/*Instructions Page*/
+.body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #f8f8e8; /* Creamy white for regular text */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #111827;
+  }
+  h1, h2 {
+    color: #34d399; /* Mint green for titles */
+  }
+  .instruction-step {
+    background-color: #1f2937;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  .instruction-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #4b5563;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  .tip {
+    background-color: #2d3748;
+    border-left: 5px solid #34d399;
+    padding: 10px;
+    margin: 20px 0;
+  }
+
 
 /*Media queries*/
 @media (max-width:1000px) {

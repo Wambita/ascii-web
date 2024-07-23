@@ -16,8 +16,7 @@ import (
 // checks flags usage from CLI if has correct format
 func Input(text string, banner string) (string, error) {
 	if text == "" {
-		fmt.Println("Error 500: Bad Request")
-		return "", errors.New("invalid banner type")
+		return "", fmt.Errorf("empty strings not accepted")
 	}
 	// preset the checksum values of the files
 	standardCheckSum := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
@@ -51,8 +50,8 @@ func Input(text string, banner string) (string, error) {
 
 	File, err := os.Open(banner)
 	if err != nil {
-		fmt.Print("Unable to read file.")
-		return "", err
+
+		return "", fmt.Errorf("file not found")
 	}
 	defer File.Close()
 
@@ -70,11 +69,15 @@ func Input(text string, banner string) (string, error) {
 
 	bannerFile, err := os.ReadFile(banner)
 	if err != nil {
+		fmt.Println(err)
 		return "", err
 	}
 
 	mapped := AsciiArtMap(string(bannerFile))
 	result := Tab(text)
-	asciiArt := AsciiCombine(result, mapped)
+	asciiArt, err := AsciiCombine(result, mapped)
+	if err != nil {
+		return "", errors.New("invalid banner type")
+	}
 	return strings.Join(asciiArt, ""), nil
 }

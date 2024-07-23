@@ -60,6 +60,10 @@ func Art(w http.ResponseWriter, r *http.Request) {
 			ErrorPage(w, http.StatusNotFound, "404 - Not Found")
 			return
 		}
+		if err.Error() == ("non ascii Character") {
+			ErrorPage(w, http.StatusInternalServerError, "400 - Bad Request")
+			return
+		}
 
 		ErrorPage(w, http.StatusInternalServerError, "500 - Internal Server Error")
 		return

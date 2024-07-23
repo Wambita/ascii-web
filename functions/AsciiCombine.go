@@ -1,7 +1,7 @@
 package ascii
 
 import (
-	"errors"
+	"fmt"
 	"strings"
 )
 
@@ -23,7 +23,7 @@ func AsciiCombine(input string, asciiMap map[rune][]string) ([]string, error) {
 		} else {
 			ascii, err := Art(char, asciiMap)
 			if err != nil {
-				return result, errors.New("invalid banner type")
+				return result, fmt.Errorf("non ascii Character")
 			}
 			result = append(result, ascii)
 		}

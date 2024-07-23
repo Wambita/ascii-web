@@ -2,7 +2,6 @@ package ascii
 
 import (
 	"crypto/sha256"
-	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -77,7 +76,7 @@ func Input(text string, banner string) (string, error) {
 	result := Tab(text)
 	asciiArt, err := AsciiCombine(result, mapped)
 	if err != nil {
-		return "", errors.New("invalid banner type")
+		return "", fmt.Errorf("non ascii Character")
 	}
 	return strings.Join(asciiArt, ""), nil
 }

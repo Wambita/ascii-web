@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .output-section {
+            width: 100%; /* Full width of the container */
+            max-width: 100%; /* Prevents exceeding the container width */
+            max-height: 400px; /* Set a maximum height for the container */
+            overflow: auto; /* Adds scrollbars if content overflows */
+            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+            padding: 10px; /* Optional: Add padding for better appearance */
+        }
+        .output-section pre {
+            white-space: pre; /* Preserve whitespace and formatting */
+            margin: 0; /* Remove default margin */
+        }
+    </style>
     <title>ASCII ART WEB</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
@@ -67,12 +81,9 @@
         
         </div>
     </div>
-    <div class="output-section">
-       
-            <pre>{{.AsciiArt}}</pre>
-        
-       
     
+    <div class="output-section">
+            <pre>{{.AsciiArt}}</pre>
     </div>
     
 </div>

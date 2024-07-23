@@ -20,6 +20,20 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	home.Execute(w, nil)
 }
 
+func About(w http.ResponseWriter, r *http.Request) {
+	home := template.Must(template.ParseFiles("./template/about.html"))
+	w.WriteHeader(http.StatusOK)
+
+	home.Execute(w, nil)
+}
+
+func Instructions(w http.ResponseWriter, r *http.Request) {
+	home := template.Must(template.ParseFiles("./template/instructions.html"))
+	w.WriteHeader(http.StatusOK)
+
+	home.Execute(w, nil)
+}
+
 func ErrorPage(w http.ResponseWriter, statusCode int, message string) {
 	tmpl := template.Must(template.ParseFiles("template/error.html"))
 	w.WriteHeader(statusCode)
@@ -51,7 +65,7 @@ func Art(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(ascii_Art)
+	// fmt.Println(ascii_Art)
 	data := ascii{AsciiArt: ascii_Art}
 
 	home := template.Must(template.ParseFiles("template/index.html"))

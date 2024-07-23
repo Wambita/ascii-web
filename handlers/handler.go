@@ -43,7 +43,7 @@ func ErrorPage(w http.ResponseWriter, statusCode int, message string) {
 
 func Art(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		ErrorPage(w, http.StatusBadRequest, "400 Bad Request")
+		ErrorPage(w, http.StatusBadRequest, "400 - Bad Request")
 		return
 	}
 
@@ -57,11 +57,11 @@ func Art(w http.ResponseWriter, r *http.Request) {
 		if err.Error() == "file not found" {
 
 			// w.WriteHeader(http.StatusNotFound)
-			ErrorPage(w, http.StatusNotFound, "404 Not Found")
+			ErrorPage(w, http.StatusNotFound, "404 - Not Found")
 			return
 		}
 
-		ErrorPage(w, http.StatusInternalServerError, "500 Internal Server Error")
+		ErrorPage(w, http.StatusInternalServerError, "500 - Internal Server Error")
 		return
 	}
 

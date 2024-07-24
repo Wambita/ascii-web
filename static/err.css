@@ -1,0 +1,49 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    background: #111827;
+    color: #34d399;
+    overflow: hidden;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+  h1 {
+    font-size: 4em;
+    margin: 0;
+    text-shadow: 0 0 10px #34d399;
+  }
+  p {
+    font-size: 1.2em;
+    margin: 20px 0;
+  }
+  #ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1;
+    font-size: 18px;
+    margin: 20px 0;
+    font-weight: 700;
+  }
+  #back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Courier New', monospace;
+    background: #111827;
+    color: #34d399;
+    border: 2px solid #34d399;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  #back-button:hover {
+    background: #34d399;
+    color: #111827;
+  }

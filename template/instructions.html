@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII ART WEB</title>
+    <title>Instructions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
     <!--Favicon-->
@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-32x32.png">
     <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
 </head>
-<body>
+<body class="body">
     <!--Main container-->
     <div class="content-wrapper">
         <!--navbar-->
@@ -25,45 +25,94 @@
             </div>
         </div>
         <div class="container">
-            <h2>Instructions</h2>
-            <div class="form-container">
-        <div class="ascii-art">
-                         _   _  
-    /\                  (_) (_) 
-   /  \     ___    ___   _   _  
-  / /\ \   / __|  / __| | | | | 
- / ____ \  \__ \ | (__  | | | | 
-/_/    \_\ |___/  \___| |_| |_| 
-                        
-                        
-                    _          
-      /\            | |         
-     /  \     _ __  | |_        
-    / /\ \   | '__| | __|       
-   / ____ \  | |    \ |_        
-  /_/    \_\ |_|     \__|       
-                            
-                            
-     __          __         _      
-     \ \        / /        | |     
-      \ \  /\  / /    ___  | |__   
-       \ \/  \/ /    / _ \ | '_ \  
-        \  /\  /    |  __/ | |_) | 
-         \/  \/      \___| |_.__/  
-                                    
+          <div class="ascii-art">                                                       
+ _____                 _                           _     _                        
+|_   _|               | |                         | |   (_)                       
+  | |    _ __    ___  | |_   _ __   _   _    ___  | |_   _    ___    _ __    ___  
+  | |   | '_ \  / __| | __| | '__| | | | |  / __| | __| | |  / _ \  | '_ \  / __| 
+ _| |_  | | | | \__ \ \ |_  | |    | |_| | | (__  \ |_  | | | (_) | | | | | \__ \ 
+|_____| |_| |_| |___/  \__| |_|     \__,_|  \___|  \__| |_|  \___/  |_| |_| |___/ 
+                                                                                  
+                                                                                
+
 </div>
-<div class="input-section">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis erat porttitor, egestas felis non, fermentum orci. Fusce in leo sollicitudin, auctor nulla a, consectetur mauris. Pellentesque eget bibendum velit. Nam non mi dictum, viverra augue id, aliquet nibh. Etiam vel tristique turpis, et aliquet arcu. Vestibulum sit amet felis in massa porta iaculis sit amet eu nibh. Nulla at metus id sapien tempor eleifend. Fusce at interdum odio. Curabitur fringilla suscipit libero in tincidunt. Praesent commodo, dolor vel vehicula placerat, orci nisl sollicitudin eros, at sollicitudin turpis sem in eros. </p>
-   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis erat porttitor, egestas felis non, fermentum orci. Fusce in leo sollicitudin, auctor nulla a, consectetur mauris. Pellentesque eget bibendum velit. Nam non mi dictum, viverra augue id, aliquet nibh. Etiam vel tristique turpis, et aliquet arcu. Vestibulum sit amet felis in massa porta iaculis sit amet eu nibh. Nulla at metus id sapien tempor eleifend. Fusce at interdum odio. Curabitur fringilla suscipit libero in tincidunt. Praesent commodo, dolor vel vehicula placerat, orci nisl sollicitudin eros, at sollicitudin turpis sem in eros. </p>
+  
+  <div class="instruction-step">
+    <h2>1. Navigate the Website</h2>
+    <p>Use the navigation bar at the top of the page to move between different sections:</p>
+    <ul>
+      <li><strong>Home:</strong> Where you can create ASCII art</li>
+      <li><strong>About:</strong> Information about the website</li>
+      <li><strong>Instructions:</strong> This guide on how to use the website</li>
+    </ul>
+    <img class="instruction-image" src="/assets/images/header.png" alt="Navigation bar showing Home, About, and Instructions links" width="800" height="60">
+  </div>
+
+  <div class="instruction-step">
+    <h2>2. Enter Your Text</h2>
+    <p>On the Home page, find the input section and enter the text you want to convert to ASCII art.</p>
+    <img class="instruction-image" src="/assets/images/11.png" alt="Text input field for entering text to convert to ASCII art" width="800" height="100">
+  </div>
+
+  <div class="instruction-step">
+    <h2>3. Choose a Banner File</h2>
+    <p>Select a banner file from the dropdown menu. This will determine the style of your ASCII art.</p>
+    <img class="instruction-image" src="/assets/images/bnn.png" alt="Dropdown menu for selecting a banner file" width="800" height="100">
+  </div>
+
+  <div class="instruction-step">
+    <h2>4. Submit Your Request</h2>
+    <p>Click the "Submit" button to generate your ASCII art.</p>
+    <img class="instruction-image" src="/assets/images/submit.png" alt="Submit button for generating ASCII art" width="800" height="60">
+  </div>
+
+  <div class="instruction-step">
+    <h2>5. View Your ASCII Art</h2>
+    <p>Your generated ASCII art will appear in the output section below the input area.</p>
+    <img class="instruction-image" src="/assets/images/out1.png" alt="Output section displaying generated ASCII art" width="800" height="60">
+  </div>
+
+  <div class="instruction-step">
+    <h2>6. Understanding ASCII Characters</h2>
+    <p>When creating or interpreting ASCII art, it's important to understand the range of characters available. There are 95 printable ASCII characters, ranging from the space character (ASCII 32) to the tilde ~ (ASCII 126).</p>
+    <p>Here's a list of these characters:</p>
+    <div class="ascii-table">
+      <table>
+        <tr><td> !"#$%&'()*+,-./:;</td></tr>
+        <tr><td>[\]^_`{|}~<=>?@</td></tr>
+        <tr><td>0123456789</td></tr>
+        <tr><td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td></tr>
+        <tr><td>abcdefghijklmnopqrstuvwxyz</td></tr>
+      </table>
+      
+    </div>
+    <p>These characters can be printed in your ASCII art.</p>
+  </div>
+
+  <div class="tip">
+    <strong>Tip:</strong> Experiment with different texts and banner files to create unique ASCII art designs! Try using a mix of characters to create depth and texture in your art.
+  </div>
+
+  <div class="instruction-step">
+    <h2>7. Explore the GitHub Project</h2>
+    <p>If you're interested in the code behind this website or want to contribute, check out the GitHub link in the bottom right section. Click the icon</p>
+    <img class="instruction-image" src="/assets/images/footer.png" alt="Footer with GitHub link" width="800" height="60">
+  </div>
+
+  <div class="instruction-step">
+    <h2>Conclusion</h2>
+    <p>Now you're ready to start creating ASCII art on our website! Remember to use the full range of printable ASCII characters to add depth and detail to your creations. Feel free to experiment with different texts, banner styles, and character combinations to create unique designs. If you have any questions or feedback, please don't hesitate to reach out through the contact information provided on the About page.</p>  
+  </div>
+ 
 </div>
-</div>
+<footer>
+  <div>&copy; 2024 ASCII ART WEB. All rights reserved</div>
+<a href="https://learn.zone01kisumu.ke/git/shfana/ascii-art-web" target="_blank" rel="noopener noreferrer">
+  <img width="30" height="30" src="/assets/favicon_io/icons8-github-50.svg" alt="github"/>
+</a>  
+</footer>
         </div>     
-        <footer>
-            <div>&copy; 2024 ASCII ART WEB. All rights reserved</div>
-          <a href="https://learn.zone01kisumu.ke/git/shfana/ascii-art-web" target="_blank" rel="noopener noreferrer">
-            <img width="30" height="30" src="/assets/favicon_io/icons8-github-50.svg" alt="github"/>
-          </a>  
-        </footer>
+       
             </div>
         </body>
         </html>

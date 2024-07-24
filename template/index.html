@@ -26,7 +26,7 @@
         <div class="input-section">
             <form method="POST" action="/ascii-art">
                 <div  class="tiny-text"   id="line-1">Enter text to display in input field</div>
-                <textarea type="text" name= "input" id="input-text" placeholder="Enter your text here"></textarea>
+                <textarea type="text" name= "input" id="input-text" placeholder="Enter your text here" required></textarea>
                 <div class="tiny-text">
                     <div class="line-2">select bannerfile & click submit button</div>
                 </div>
@@ -40,36 +40,36 @@
                 </div>
             </form>
         </div>
-        <div class="ascii-art">
-                                 _   _  
-            /\                  (_) (_) 
-           /  \     ___    ___   _   _  
-          / /\ \   / __|  / __| | | | | 
-         / ____ \  \__ \ | (__  | | | | 
-        /_/    \_\ |___/  \___| |_| |_| 
-                                        
-                                        
-                                 _          
-                  /\            | |         
-                 /  \     _ __  | |_        
-                / /\ \   | '__| | __|       
-               / ____ \  | |    \ |_        
-              /_/    \_\ |_|     \__|       
-                                            
-                                            
-                    __          __         _      
-                    \ \        / /        | |     
-                     \ \  /\  / /    ___  | |__   
-                      \ \/  \/ /    / _ \ | '_ \  
-                       \  /\  /    |  __/ | |_) | 
-                        \/  \/      \___| |_.__/  
-                                                  
+        <div class="ascii-art">  
+      O    o-o    o-o o-O-o o-O-o 
+     / \  |      /      |     |   
+    o---o  o-o  O       |     |   
+    |   |     |  \      |     |   
+    o   o o--o    o-o o-O-o o-O-o 
+                              
+                              
+                        
+        O   o--o  o-O-o 
+       / \  |   |   |   
+      o---o O-Oo    |   
+      |   | |  \    |   
+      o   o o   o   o   
+                        
+                        
+                           
+      o       o o--o o--o  
+      |       | |    |   | 
+      o   o   o O-o  O--o  
+       \ / \ /  |    |   | 
+        o   o   o--o o--o  
+                           
+
         
         </div>
     </div>
     
     <div class="output-section">
-        <p>Output</p>
+        <p  style="color: #34d399">Output:</p>
             <pre>{{.AsciiArt}}</pre>
     </div>
     

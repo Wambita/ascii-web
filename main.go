@@ -8,20 +8,20 @@ import (
 	handler "server/handlers"
 )
 
-type customHandler struct {
-	http.Handler
-}
+// type customHandler struct {
+// 	http.Handler
+// }
 
-func (c *customHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	switch r.URL.Path {
-	case "/", "/ascii-art", "/about", "/instructions":
-		c.Handler.ServeHTTP(w, r)
-	case "/static/", "/assets/":
-		c.Handler.ServeHTTP(w, r)
-	default:
-		handler.ErrorPageHandler(w, http.StatusNotFound, "404 not found")
-	}
-}
+// func (c *customHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+// 	switch r.URL.Path {
+// 	case "/", "/ascii-art", "/about", "/instructions":
+// 		c.Handler.ServeHTTP(w, r)
+// 	case "/static/", "/assets/":
+// 		c.Handler.ServeHTTP(w, r)
+// 	default:
+// 		handler.ErrorPageHandler(w, http.StatusNotFound, "404 not found")
+// 	}
+// }
 
 func main() {
 	if len(os.Args) != 1 {

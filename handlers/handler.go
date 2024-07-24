@@ -13,37 +13,53 @@ type ascii struct {
 	Error    string
 }
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	home := template.Must(template.ParseFiles("./template/index.html"))
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	home, err := template.New("index.html").ParseFiles("./template/index.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusOK)
 
 	home.Execute(w, nil)
 }
 
-func About(w http.ResponseWriter, r *http.Request) {
-	home := template.Must(template.ParseFiles("./template/about.html"))
+func AboutHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.New("index.html").ParseFiles("./template/index.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusOK)
 
-	home.Execute(w, nil)
+	tmpl.Execute(w, nil)
 }
 
-func Instructions(w http.ResponseWriter, r *http.Request) {
-	home := template.Must(template.ParseFiles("./template/instructions.html"))
+func InstructionsHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.New("index.html").ParseFiles("./template/instructions.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(http.StatusOK)
 
-	home.Execute(w, nil)
+	tmpl.Execute(w, nil)
 }
 
-func ErrorPage(w http.ResponseWriter, statusCode int, message string) {
-	tmpl := template.Must(template.ParseFiles("template/error.html"))
+func ErrorPageHandler(w http.ResponseWriter, statusCode int, message string) {
+	tmpl, err := template.New("error.html").ParseFiles("./template/error.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	w.WriteHeader(statusCode)
 	data := ascii{Error: message}
 	tmpl.Execute(w, data)
 }
 
-func Art(w http.ResponseWriter, r *http.Request) {
+func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		ErrorPage(w, http.StatusBadRequest, "400 Bad Request")
+		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
 		return
 	}
 
@@ -57,11 +73,11 @@ func Art(w http.ResponseWriter, r *http.Request) {
 		if err.Error() == "file not found" {
 
 			// w.WriteHeader(http.StatusNotFound)
-			ErrorPage(w, http.StatusNotFound, "404 Not Found")
+			ErrorPageHandler(w, http.StatusNotFound, "404 Not Found")
 			return
 		}
 
-		ErrorPage(w, http.StatusInternalServerError, "500 Internal Server Error")
+		ErrorPageHandler(w, http.StatusInternalServerError, "500 Internal Server Error")
 		return
 	}
 

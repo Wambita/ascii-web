@@ -67,7 +67,7 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	text := r.FormValue("input")
 	banner := r.FormValue("bannerfile")
 	ascii_Art, err := functions.Input(text, banner)
-	fmt.Println(err)
+	
 
 	if err != nil {
 		if err.Error() == "file not found" {
@@ -90,3 +90,5 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err2)
 	}
 }
+
+

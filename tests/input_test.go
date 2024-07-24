@@ -20,7 +20,7 @@ var testCases = []testCase{
 	{
 		text:        "hello",
 		banner:      "standard",
-		expected:    join("test.txt"),
+		expected:    Join("../functions/resources/test.txt"),
 		expectError: false,
 	},
 }
@@ -75,7 +75,7 @@ func TestInput(t *testing.T) {
 	}
 }
 
-func join(filename string) string {
+func Join(filename string) string {
 	text, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Test case file not found.")

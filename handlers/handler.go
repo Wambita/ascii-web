@@ -25,7 +25,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.New("index.html").ParseFiles("./template/index.html")
+	tmpl, err := template.New("about.html").ParseFiles("./template/about.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -36,7 +36,7 @@ func AboutHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func InstructionsHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.New("index.html").ParseFiles("./template/instructions.html")
+	tmpl, err := template.New("instructions.html").ParseFiles("./template/instructions.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

@@ -72,6 +72,6 @@ func Checkfiles(s string) error {
 		return err
 	}
 
-	fmt.Printf("Successfully updated %s.Please try again\n", s)
+	
 	return nil
 }

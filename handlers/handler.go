@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"text/template"
-
-	functions "server/functions"
+	function "server/ascii"
 )
 
 type ascii struct {
@@ -62,18 +61,17 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
 		return
 	}
-	
+
 	r.ParseForm()
 	text := r.FormValue("input")
-	
+
 	banner := r.FormValue("bannerfile")
-	ascii_Art, err := functions.Input(text, banner)
-	
-	if text==""||banner==""{
+	ascii_Art, err := function.Input(text, banner)
+
+	if text == "" || banner == "" {
 		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
 		return
 	}
-
 
 	banners := []string{"standard", "thinkertoy", "shadow", "ac"}
 	for i := range banners {
@@ -87,17 +85,14 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		if err.Error() == "file not found" {
 
-			
 			ErrorPageHandler(w, http.StatusNotFound, "404 Not Found")
 			return
 		}
-		
 
 		ErrorPageHandler(w, http.StatusInternalServerError, "500 Internal Server Error")
 		return
 	}
 
-	
 	data := ascii{AsciiArt: ascii_Art}
 
 	home := template.Must(template.ParseFiles("template/index.html"))
@@ -106,5 +101,3 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err2)
 	}
 }
-
-

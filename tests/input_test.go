@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	ascii "server/functions"
+	ascii "server/ascii"
 )
 
 type testCase struct {
@@ -20,7 +20,7 @@ var testCases = []testCase{
 	{
 		text:        "hello",
 		banner:      "standard",
-		expected:    Join("../functions/resources/test.txt"),
+		expected:    Join("../ascii/resources/test.txt"),
 		expectError: false,
 	},
 }

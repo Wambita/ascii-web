@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	ascii "server/functions"
+	ascii "server/ascii"
 )
 
 type testAsciiArt struct {
@@ -20,7 +20,7 @@ var testAsciiArts = []testAsciiArt{
 	{
 		text:        "jambo\nhujambo",
 		banner:      "standard",
-		expected:    Join("../functions/resources/test6.txt"),
+		expected:    Join("../ascii/resources/test6.txt"),
 		expectError: false,
 	},
 }

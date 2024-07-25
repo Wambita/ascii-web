@@ -62,26 +62,42 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
 		return
 	}
-
+	
 	r.ParseForm()
 	text := r.FormValue("input")
+	
 	banner := r.FormValue("bannerfile")
 	ascii_Art, err := functions.Input(text, banner)
 	
+	if text==""||banner==""{
+		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
+		return
+	}
 
+
+	banners := []string{"standard", "thinkertoy", "shadow", "ac"}
+	for i := range banners {
+		if banner != banners[i] && i == len(banners)-1 {
+			ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
+			return
+		} else if banner == banners[i] {
+			break
+		}
+	}
 	if err != nil {
 		if err.Error() == "file not found" {
 
-			// w.WriteHeader(http.StatusNotFound)
+			
 			ErrorPageHandler(w, http.StatusNotFound, "404 Not Found")
 			return
 		}
+		
 
 		ErrorPageHandler(w, http.StatusInternalServerError, "500 Internal Server Error")
 		return
 	}
 
-	// fmt.Println(ascii_Art)
+	
 	data := ascii{AsciiArt: ascii_Art}
 
 	home := template.Must(template.ParseFiles("template/index.html"))

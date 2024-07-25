@@ -26,23 +26,21 @@ func Input(text string, banner string) (string, error) {
 
 	banner = strings.ToLower(banner)
 
-	
 	switch banner {
 	case "standard":
-		banner = "functions/resources/standard.txt"
+		banner = "ascii/resources/standard.txt"
 	case "thinkertoy":
-		banner = "functions/resources/thinkertoy.txt"
+		banner = "ascii/resources/thinkertoy.txt"
 	case "shadow":
-		banner = "functions/resources/shadow.txt"
+		banner = "ascii/resources/shadow.txt"
 	case "ac":
-		banner = "functions/resources/ac.txt"
+		banner = "ascii/resources/ac.txt"
 	default:
-		banner = "functions/resources/standard.txt"
+		banner = "ascii/resources/standard.txt"
 	}
 
 	File, err := os.Open(banner)
 	if err != nil {
-
 		return "", fmt.Errorf("file not found")
 	}
 	defer File.Close()
@@ -54,12 +52,29 @@ func Input(text string, banner string) (string, error) {
 	checkSum := string(fmt.Sprintf("%x", bannerTemp.Sum(nil)))
 
 	if checkSum != standardCheckSum && checkSum != thinkertoyCheckSum && checkSum != shadowCheckSum && checkSum != acCheckSum {
-		err:=Checkfiles(banner)
-		if err!=nil{
-			return "",fmt.Errorf("failed to connect successflully")
-			}else{
-				
-				bannerFile, err := os.ReadFile(banner)
+		err := Checkfiles(banner)
+		if err != nil {
+			return "", fmt.Errorf("failed to connect successflully")
+		} else {
+
+			bannerFile, err := os.ReadFile(banner)
+			if err != nil {
+				fmt.Println(err)
+				return "", err
+			}
+
+			mapped := AsciiArtMap(string(bannerFile))
+			result := Tab(text)
+			asciiArt, err := AsciiCombine(result, mapped)
+			if err != nil {
+				return "", errors.New("invalid banner type")
+			}
+			return strings.Join(asciiArt, ""), nil
+		}
+
+	}
+
+	bannerFile, err := os.ReadFile(banner)
 	if err != nil {
 		fmt.Println(err)
 		return "", err
@@ -72,24 +87,4 @@ func Input(text string, banner string) (string, error) {
 		return "", errors.New("invalid banner type")
 	}
 	return strings.Join(asciiArt, ""), nil
-		}
-		
-	} 
-	
-		bannerFile, err := os.ReadFile(banner)
-		if err != nil {
-			fmt.Println(err)
-			return "", err
-		}
-	
-		mapped := AsciiArtMap(string(bannerFile))
-		result := Tab(text)
-		asciiArt, err := AsciiCombine(result, mapped)
-		if err != nil {
-			return "", errors.New("invalid banner type")
-		}
-		return strings.Join(asciiArt, ""), nil
-
-
-
 }

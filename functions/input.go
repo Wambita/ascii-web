@@ -26,15 +26,7 @@ func Input(text string, banner string) (string, error) {
 
 	banner = strings.ToLower(banner)
 
-	// banners := []string{"standard", "thinkertoy", "shadow", "ac"}
-	// for i := range banners {
-	// 	if banner != banners[i] && i == len(banners)-1 {
-	// 		fmt.Println("Usage: go run . [OPTION] [STRING] [BANNER] \n\nEX: go run . --output=<fileName.txt> something standard")
-	// 		os.Exit(0)
-	// 	} else if banner == banners[i] {
-	// 		break
-	// 	}
-	// }
+	
 	switch banner {
 	case "standard":
 		banner = "functions/resources/standard.txt"
@@ -62,12 +54,12 @@ func Input(text string, banner string) (string, error) {
 	checkSum := string(fmt.Sprintf("%x", bannerTemp.Sum(nil)))
 
 	if checkSum != standardCheckSum && checkSum != thinkertoyCheckSum && checkSum != shadowCheckSum && checkSum != acCheckSum {
-		fmt.Println("File contents have been corrupted. Redownloading the banner file")
-		Checkfiles(banner)
-		os.Exit(0)
-	}
-
-	bannerFile, err := os.ReadFile(banner)
+		err:=Checkfiles(banner)
+		if err!=nil{
+			return "",fmt.Errorf("failed to connect successflully")
+			}else{
+				
+				bannerFile, err := os.ReadFile(banner)
 	if err != nil {
 		fmt.Println(err)
 		return "", err
@@ -80,4 +72,24 @@ func Input(text string, banner string) (string, error) {
 		return "", errors.New("invalid banner type")
 	}
 	return strings.Join(asciiArt, ""), nil
+		}
+		
+	} 
+	
+		bannerFile, err := os.ReadFile(banner)
+		if err != nil {
+			fmt.Println(err)
+			return "", err
+		}
+	
+		mapped := AsciiArtMap(string(bannerFile))
+		result := Tab(text)
+		asciiArt, err := AsciiCombine(result, mapped)
+		if err != nil {
+			return "", errors.New("invalid banner type")
+		}
+		return strings.Join(asciiArt, ""), nil
+
+
+
 }

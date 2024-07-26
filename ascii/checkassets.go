@@ -72,6 +72,5 @@ func Checkfiles(s string) error {
 		return err
 	}
 
-	
 	return nil
 }

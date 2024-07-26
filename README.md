@@ -5,10 +5,10 @@ ASCII Art Web is a dynamic web application that allows users to create ASCII ART
 
 # TABLE OF CONTENT
 
-* [Introduction](#Introduction)
+- [Introduction](#Introduction)
 - [Usage](#Usage)
 - [Implementation](#implementation-detail:algorithm)
-* [Authors](#author)
+- [Authors](#author)
 
 
 ## Introduction

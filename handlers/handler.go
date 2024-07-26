@@ -63,7 +63,7 @@ func ErrorPageHandler(w http.ResponseWriter, statusCode int, message string) {
 	tmpl.Execute(w, data)
 }
 
-//Handler for the used for obtain ascii art for each character.
+//Handler used for obtaining ascii art
 func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
@@ -81,7 +81,7 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	banners := []string{"standard", "thinkertoy", "shadow", "ac"}
+	banners := []string{"standard", "thinkertoy", "shadow"}
 	for i := range banners {
 		if banner != banners[i] && i == len(banners)-1 {
 			ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")
@@ -97,15 +97,16 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		ErrorPageHandler(w, http.StatusInternalServerError, "Bad Request")
+		ErrorPageHandler(w, http.StatusInternalServerError, "500 Internal Server Error")
 		return
 	}
 
 	data := ascii{AsciiArt: ascii_Art,Output: text}
 
-	home := template.Must(template.ParseFiles("template/ascii.html"))
-	err2 := home.Execute(w, data)
-	if err2 != nil {
-		fmt.Println(err2)
+	tmpl := template.Must(template.ParseFiles("template/ascii.html"))
+	err1 := tmpl.Execute(w, data)
+	if err1 != nil {
+		ErrorPageHandler(w, http.StatusBadRequest, "404 Not Found")
+		return
 	}
 }

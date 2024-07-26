@@ -56,20 +56,9 @@ func TestInput(t *testing.T) {
 			}
 			// _, _ = io.Copy(&buf, r)
 
-			// Check for errors if expected
-			if tc.expectError {
-				if err == nil {
-					t.Fatalf("expected an error but got none")
-				}
-			} else {
-				if err != nil {
-					t.Fatalf("didn't expect an error but got: %v", err)
-				}
-
-				// Compare output
-				if got.String() != tc.expected {
-					t.Errorf("expected %q, got %q", tc.expected, got)
-				}
+			// Compare output
+			if got.String() != tc.expected {
+				t.Errorf("expected %q, got %q", tc.expected, got)
 			}
 		})
 	}

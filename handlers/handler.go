@@ -13,6 +13,7 @@ type ascii struct {
 	Error    string
 }
 
+// Handler for the homepage.
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	home, err := template.New("index.html").ParseFiles("./template/index.html")
 	if err != nil {
@@ -24,6 +25,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	home.Execute(w, nil)
 }
 
+// Handler for the about page
 func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.New("about.html").ParseFiles("./template/about.html")
 	fmt.Print(err)
@@ -36,6 +38,7 @@ func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
+// Handler for the instruction page.
 func InstructionsHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.New("instructions.html").ParseFiles("./template/instructions.html")
 	if err != nil {
@@ -47,6 +50,7 @@ func InstructionsHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
+// Handler for the error page.
 func ErrorPageHandler(w http.ResponseWriter, statusCode int, message string) {
 	tmpl, err := template.New("error.html").ParseFiles("./template/error.html")
 	if err != nil {
@@ -58,6 +62,7 @@ func ErrorPageHandler(w http.ResponseWriter, statusCode int, message string) {
 	tmpl.Execute(w, data)
 }
 
+//Handler for the used for obtain ascii art for each character.
 func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		ErrorPageHandler(w, http.StatusBadRequest, "400 Bad Request")

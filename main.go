@@ -7,6 +7,7 @@ import (
 
 	handler "server/handlers"
 )
+
 // Runs the server and calls the various webpages.
 func main() {
 	if len(os.Args) != 1 {
@@ -16,7 +17,6 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	assets := http.FileServer(http.Dir("assets"))
 
-	
 	http.Handle("/assets/", http.StripPrefix("/assets/", assets))
 	http.HandleFunc("/ascii-art", handler.ArtHandler)
 	http.HandleFunc("/about", handler.AboutHandler)

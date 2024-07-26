@@ -1,26 +1,33 @@
 # ASCII-ART WEB
 
-ASCII Art WEb is a dynamic web application that allows users to create ASCII ART.It consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of the last project ascii-art.
+ASCII Art Web is a dynamic web application that allows users to create ASCII ART.It consists of creating and running a server by which a web-based GUI (graphical user interface) implementation of the previous project ascii-art.
 
 
 # TABLE OF CONTENT
 
-- [Indroduction](#Introduction)
+* [Introduction](#Introduction)
 - [Usage](#Usage)
-- [#implementation_detail:_algorithm](#implementation)
-- [Authors](#Author)
+- [Implementation](#implementation-detail:algorithm)
+* [Authors](#author)
 
 
 ## Introduction
-Ascii-art Web is a program that creates a webpage for clients to generate Ascii-Art of the message you enter. There are various aspects that can be implemented where the user/client is presented an area for them to type their desire message. If the character is among the printable ASCII range  it is represented within the art as well as numerics and symbols.
+Ascii-art Web is a project that hosts webpages for users to generate Ascii-Art of their desired text with their desired banner. The user is presented an area for them to type their desired text. If the character is among the printable ASCII character range  it is displayed this includes,numerics and symbols.
 
 ### Features 
-+ Convert text to ASCII art using varoius banner files
++ Convert text to ASCII art using varius banner files
 + Interactive web interface for  creating ASCII art.
 + Responsive design for desktop and mobile devices.
 
 
 ## Installation 
+
+Download the Go installer from the official [Go website](https://go.dev/doc/install).
+
+Follow the installation instructions for your specific operating system.
+
+Verify your installation by opening a command prompt and typing `go --version`. This should print the installed version of Go.
+
 
 To set up ASCII Art Web locally, follow these steps:
 ```bash
@@ -34,7 +41,7 @@ cd ascii-art-web
 
 `sudo apt install go -all`
 
-# Start the development server
+# Start the ascii-web server
 go run .
 ```
 
@@ -42,15 +49,13 @@ go run .
 After installation, you can access the web application by navgating to [http://localhost:8080](http://localhost:8080)
 
 
-output
 
 You will receive the following message on your terminal
 ```bash
 Server is starting at http://localhost:8080
 ```
 ![home](/assets/images/home.png)
-
-- This is the page that is displayed when the user opens 
+ 
 
 - These are the various parts of the home page 
 
@@ -215,7 +220,10 @@ This folder handles the test files used to test the various parts of the code to
 This is where the handlers in handler file are called and the where the server is run from.
 
 ## Limitations
-This project can only print characters in the printable ASCII range from space to tide `~`. When other characters outside the range are used, the program returns a bad request error.
+This project can only print characters in the printable ASCII range from space to tilde `~`. When other characters outside the range are used, the program returns a bad request error.
+
+Be light on using the character combination "\n" and "\r"
+as they  represent newline (or same as you press enter button)
 
 ## Contribution
 

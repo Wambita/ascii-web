@@ -11,6 +11,7 @@ import (
 type ascii struct {
 	AsciiArt string
 	Error    string
+	Output string
 }
 
 // Handler for the homepage.
@@ -100,9 +101,9 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := ascii{AsciiArt: ascii_Art}
+	data := ascii{AsciiArt: ascii_Art,Output: text}
 
-	home := template.Must(template.ParseFiles("template/index.html"))
+	home := template.Must(template.ParseFiles("template/ascii.html"))
 	err2 := home.Execute(w, data)
 	if err2 != nil {
 		fmt.Println(err2)

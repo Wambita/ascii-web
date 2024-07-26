@@ -26,7 +26,7 @@ var testAsciiArts = []testAsciiArt{
 }
 
 func TestAsciiCombine(t *testing.T) {
-	for _, tc := range testCases {
+	for _, tc := range testAsciiArts {
 		t.Run(tc.text, func(t *testing.T) {
 			// Capture stdout
 			old := os.Stdout
@@ -56,22 +56,11 @@ func TestAsciiCombine(t *testing.T) {
 			}
 			// _, _ = io.Copy(&buf, r)
 
-			// Check for errors if expected
-			if tc.expectError {
-				if err == nil {
-					t.Fatalf("expected an error but got none")
-				}
-			} else {
-				if err != nil {
-					t.Fatalf("didn't expect an error but got: %v", err)
-				}
-
-				// Compare output
-				if got.String() != tc.expected {
-					t.Errorf("expected %q, got %q", tc.expected, got)
-				}
+			// Check for errors if expect
+			// Compare output
+			if got.String() != tc.expected {
+				t.Errorf("expected %q, got %q", tc.expected, got)
 			}
 		})
 	}
 }
-

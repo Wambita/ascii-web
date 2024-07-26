@@ -1,3 +1,5 @@
+
+/*Body styling general*/
 body {
     margin: 0;
     padding: 0;
@@ -6,17 +8,14 @@ body {
     height: 100%;
     background-color: #111827;
     color: #f0f0f0;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
     box-sizing: border-box;
 }
+/*main container */
 .content-wrapper{
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    flex: 1;
     display: flex;
     flex-direction: column;
     border: 2px solid #444;
@@ -25,6 +24,7 @@ body {
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
+/*navbar styling*/
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -54,6 +54,8 @@ transition: color 0.3s;
 .nav-links a:hover, .nav-links a.active{
     color:#34d399;
 }
+
+/*Form and output container*/
 .container{
     flex: 1;
     display: flex;
@@ -61,6 +63,7 @@ transition: color 0.3s;
     align-items: center;
 }
 
+/*form and button container*/
 .form-container{
 background-color: rgba(31, 41, 55, 0.9);
 padding: 40px;
@@ -83,6 +86,7 @@ form{
     gap: 20px;
     align-items: flex-start;
 }
+/*inputs styling form*/
 input, select,textarea {
     width: 100%;
     padding: 12px;
@@ -115,6 +119,8 @@ button {
 button:hover {
     background-color: #2ab380;
 }
+
+/*footer styling*/
 footer{
     background-color: #1f2937;
     padding: 10px 20px;
@@ -131,6 +137,8 @@ footer{
     height: 24px;
     vertical-align: middle;
 }
+
+/*art styling*/
 .ascii-art{
     width: 48%;
     font-family: monospace;
@@ -140,11 +148,7 @@ footer{
     line-height: 1;
     color: #34d399;
 }
-
-#download-btn{
-    margin-top: 10px;
-}
-
+/*output section art styling*/
 .output-section{
     width: 100%;
     max-width: 1000px;
@@ -154,7 +158,10 @@ footer{
     box-shadow: 0 0 20px rgba(0,0,0, 0.5);
     overflow: auto;
     min-height: 200px;
+    margin-bottom: 40px;
 }
+
+/*form text styling*/
 .option-row{
     display: flex;
     gap:10px;
@@ -171,6 +178,8 @@ footer{
 .tiny-text .line-2 {
     color: #34d399;
 }
+
+
 /*Instructions Page*/
 .body {
     font-family: Arial, sans-serif;
@@ -218,6 +227,8 @@ footer{
     letter-spacing: 2px;
     overflow-x: auto;
   }
+
+
   /*About page styling*/
   .containers {
     width: 90%;
@@ -327,6 +338,8 @@ footer{
       overflow-x: auto;
     }
 }
+
+/*media queries for small screens*/
 @media (max-width: 600px) {
     .logo{
         font-size: 18px;

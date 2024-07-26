@@ -18,10 +18,10 @@ type testTab struct {
 
 var testTabs = []testTab{
 	{
-		text:        "hello\tthere ",
-		banner:      "standard",
-		expected:    Join("../ascii/resources/test7.txt"),
-		expectedError:  false,
+		text:          "hello\tthere ",
+		banner:        "standard",
+		expected:      Join("../ascii/resources/test7.txt"),
+		expectedError: false,
 	},
 }
 
@@ -53,22 +53,9 @@ func TestTab(t *testing.T) {
 				return
 			}
 
-			if tc.expectedError {
-				if err == nil {
-					fmt.Println("Error not found")
-					return
-				}
-			} else {
-				if err != nil {
-					fmt.Println("Error found")
-					return
-				}
-				if got.String() != tc.expected {
-					t.Errorf("expected %q, got %q", tc.expected, got)
-				}
+			if got.String() != tc.expected {
+				t.Errorf("expected %q, got %q", tc.expected, got)
 			}
 		})
 	}
 }
-
-

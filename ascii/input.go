@@ -22,7 +22,7 @@ func Input(text string, banner string) (string, error) {
 	standardCheckSum := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
 	shadowCheckSum := "26b94d0b134b77e9fd23e0360bfd81740f80fb7f6541d1d8c5d85e73ee550f73"
 	thinkertoyCheckSum := "092d0cde973bfbb02522f18e00e8612e269f53bac358bb06f060a44abd0dbc52"
-	acCheckSum := "cb217d33c89b7320ebd39f18573ab7ab90c3cb9042a7702f5dd21833524e73b2"
+	
 
 	banner = strings.ToLower(banner)
 
@@ -33,8 +33,6 @@ func Input(text string, banner string) (string, error) {
 		banner = "ascii/resources/thinkertoy.txt"
 	case "shadow":
 		banner = "ascii/resources/shadow.txt"
-	case "ac":
-		banner = "ascii/resources/ac.txt"
 	default:
 		banner = "ascii/resources/standard.txt"
 	}
@@ -51,7 +49,7 @@ func Input(text string, banner string) (string, error) {
 	}
 	checkSum := string(fmt.Sprintf("%x", bannerTemp.Sum(nil)))
 
-	if checkSum != standardCheckSum && checkSum != thinkertoyCheckSum && checkSum != shadowCheckSum && checkSum != acCheckSum {
+	if checkSum != standardCheckSum && checkSum != thinkertoyCheckSum && checkSum != shadowCheckSum {
 		err := Checkfiles(banner)
 		if err != nil {
 			return "", fmt.Errorf("failed to connect successflully")

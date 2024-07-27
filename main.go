@@ -8,6 +8,8 @@ import (
 	handler "server/handlers"
 )
 
+
+
 // Runs the server and calls the various webpages.
 func main() {
 	if len(os.Args) != 1 {
@@ -16,6 +18,7 @@ func main() {
 
 	fs := http.FileServer(http.Dir("static"))
 	assets := http.FileServer(http.Dir("assets"))
+
 
 	http.Handle("/assets/", http.StripPrefix("/assets/", assets))
 	http.HandleFunc("/ascii-art", handler.ArtHandler)
@@ -34,3 +37,15 @@ func main() {
 	fmt.Println("Server is running on port :8080")
 	http.ListenAndServe(":8080", nil)
 }
+
+func Serve(w http.ResponseWriter, r *http.Request) {
+	imagePath := "./" + r.URL.Path
+	_, err := os.Stat(imagePath)
+	if err != nil {
+		fmt.Fprintf(w, "Image not found")
+	}
+	
+	content, _ := os.ReadFile(imagePath)
+	fmt.Fprintf(w, "%s", string(content))
+}
+
